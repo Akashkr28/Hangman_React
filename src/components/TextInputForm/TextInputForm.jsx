@@ -5,6 +5,7 @@ import { useState } from "react";
 function TextInputForm({ onSubmit }) {
 
     const [value, setValue] = useState('');
+    const [inputType, setInputType] = useState('passwor');
 
     function handleFormSubmit(event) {
         event.preventDefault();
@@ -19,13 +20,21 @@ function TextInputForm({ onSubmit }) {
     }
 
     return (
-        <form className="flex" onSubmit={handleFormSubmit}>
+        <form className="flex items-end" onSubmit={handleFormSubmit}>
             <div className="mr-2 flex-1">
                  <TextInput 
                     label="Enter a word or phrase"
-                    type="password"
+                    type={inputType}
                     value={value}
                     onChange={handleTextInputChange}
+                />
+            </div>
+
+            <div>
+                <Button 
+                    styleType="warning"
+                    text={inputType === "password" ? 'Show' : 'Hide'}
+                    onClickHandler={() => setInputType(inputType === "password" ? 'text' : 'password')}
                 />
             </div>
 
