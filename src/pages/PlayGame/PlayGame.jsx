@@ -10,7 +10,7 @@ function PlayGame() {
             <MaskedText text="humble" usedLetters={['b', 'e']}/>
             <hr/>
 
-            <LetterButtons/>
+            <LetterButtons usedLetters={['b', 'e']}/>
             <hr/>
 
             <Link to={'/start'}>Start Game</Link>
